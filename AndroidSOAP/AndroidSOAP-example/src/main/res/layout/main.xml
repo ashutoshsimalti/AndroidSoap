@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ad="http://schemas.android.com/apk/res/hu.javaforum.android.androidsoap"
+              android:layout_height="fill_parent"
+              android:layout_width="fill_parent"
+              android:orientation="vertical">
+  <TextView android:id="@+main/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="32px"
+            android:text="@string/app_title"/>
+  <LinearLayout android:id="@+main/w3c"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+    <Button android:id="@+main/toFarenheit"
+            android:layout_width="120dip"
+            android:layout_height="wrap_content"
+            android:text="Convert to F°"/>
+    <EditText android:id="@+main/celsius"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="37.0"/>
+  </LinearLayout>
+  <TextView android:id="@+main/farenheit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text=""/>
+  <ScrollView android:id="@+main/scrollView"
+              android:layout_height="fill_parent"
+              android:layout_width="fill_parent"
+              android:layout_weight="1">
+    <LinearLayout android:id="@+main/layout"
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent">
+    </LinearLayout>
+  </ScrollView>
+</LinearLayout>

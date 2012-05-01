@@ -1,0 +1,80 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions name='DownloadSkinPackBeanService' targetNamespace='http://skinpack.pop.javaforum.hu/' xmlns='http://schemas.xmlsoap.org/wsdl/' xmlns:soap='http://schemas.xmlsoap.org/wsdl/soap/' xmlns:tns='http://skinpack.pop.javaforum.hu/' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+ <types>
+  <xs:schema targetNamespace='http://skinpack.pop.javaforum.hu/' version='1.0' xmlns:tns='http://skinpack.pop.javaforum.hu/' xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+   <xs:element name='ServiceException' type='tns:ServiceException'/>
+   <xs:element name='downloadSkinPack' type='tns:downloadSkinPack'/>
+   <xs:element name='downloadSkinPackResponse' type='tns:downloadSkinPackResponse'/>
+   <xs:complexType name='downloadSkinPack'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='request' type='tns:downloadSkinPackRequest'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='downloadSkinPackRequest'>
+    <xs:sequence>
+     <xs:element name='systemName' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='downloadSkinPackResponse'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='return' type='tns:DownloadSkinPackResponseType'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='DownloadSkinPackResponseType'>
+    <xs:sequence>
+     <xs:element name='skinPackMetadata' type='tns:skinPackMetadata'/>
+     <xs:element name='stream' type='xs:base64Binary'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='skinPackMetadata'>
+    <xs:sequence>
+     <xs:element name='systemName' type='xs:string'/>
+     <xs:element name='fileName' type='xs:string'/>
+     <xs:element name='name' type='xs:string'/>
+     <xs:element name='version' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name='ServiceException'>
+    <xs:sequence>
+     <xs:element minOccurs='0' name='message' type='xs:string'/>
+    </xs:sequence>
+   </xs:complexType>
+  </xs:schema>
+ </types>
+ <message name='DownloadSkinPackBean_downloadSkinPackResponse'>
+  <part element='tns:downloadSkinPackResponse' name='downloadSkinPackResponse'></part>
+ </message>
+ <message name='DownloadSkinPackBean_downloadSkinPack'>
+  <part element='tns:downloadSkinPack' name='downloadSkinPack'></part>
+ </message>
+ <message name='ServiceException'>
+  <part element='tns:ServiceException' name='ServiceException'></part>
+ </message>
+ <portType name='DownloadSkinPackBean'>
+  <operation name='downloadSkinPack' parameterOrder='downloadSkinPack'>
+   <input message='tns:DownloadSkinPackBean_downloadSkinPack'></input>
+   <output message='tns:DownloadSkinPackBean_downloadSkinPackResponse'></output>
+   <fault message='tns:ServiceException' name='ServiceException'></fault>
+  </operation>
+ </portType>
+ <binding name='DownloadSkinPackBeanBinding' type='tns:DownloadSkinPackBean'>
+  <soap:binding style='document' transport='http://schemas.xmlsoap.org/soap/http'/>
+  <operation name='downloadSkinPack'>
+   <soap:operation soapAction=''/>
+   <input>
+    <soap:body use='literal'/>
+   </input>
+   <output>
+    <soap:body use='literal'/>
+   </output>
+   <fault name='ServiceException'>
+    <soap:fault name='ServiceException' use='literal'/>
+   </fault>
+  </operation>
+ </binding>
+ <service name='DownloadSkinPackBeanService'>
+  <port binding='tns:DownloadSkinPackBeanBinding' name='DownloadSkinPackBeanPort'>
+   <soap:address location='https://services.power.of.planets.hu/PoP-SkinPack-remote/downloadSkinPack'/>
+  </port>
+ </service>
+</definitions>

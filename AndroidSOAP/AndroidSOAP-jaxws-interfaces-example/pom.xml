@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>hu.javaforum.android</groupId>
+    <artifactId>AndroidSOAP</artifactId>
+    <version>0.0.6-SNAPSHOT</version>
+  </parent>
+
+  <groupId>hu.javaforum.android.androidsoap</groupId>
+  <artifactId>AndroidSOAP-jaxws-interfaces-example</artifactId>
+  <version>0.0.6-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>Android SOAP - JAX-WS interfaces - example</name>
+  <description>AndroidSOAP - JAX-WS interfaces - example</description>
+
+  <dependencies>
+	<!-- The internal dependencies -->
+
+	<!-- The external dependencies -->
+
+	<!-- The container provided dependencies -->
+
+	<!-- The 'transitive' external dependencies -->
+
+	<!-- The 'transitive' container provided dependencies -->
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${basedir}/target/generated-sources/wsimport</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin> 
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jaxws-maven-plugin</artifactId>
+        <version>1.10</version>
+        <executions>
+          <execution>
+            <id>listSkinPacksWsdl</id>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+            <configuration>
+              <wsdlFiles>
+                <wsdlFile>PoP-SkinPack-remote.listSkinPacks.wsdl</wsdlFile>
+              </wsdlFiles>
+              <packageName>hu.javaforum.pop.skinpack.list</packageName>
+              <sourceDestDir>${basedir}/target/generated-sources/wsimport</sourceDestDir>
+              <staleFile>${project.build.directory}/jaxws/stale/wsdl1.done</staleFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>downloadSkinPackWsdl</id>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+            <configuration>
+              <wsdlFiles>
+                <wsdlFile>PoP-SkinPack-remote.downloadSkinPack.wsdl</wsdlFile>
+              </wsdlFiles>
+              <packageName>hu.javaforum.pop.skinpack.download</packageName>
+              <sourceDestDir>${basedir}/target/generated-sources/wsimport</sourceDestDir>
+              <staleFile>${project.build.directory}/jaxws/stale/wsdl2.done</staleFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>mnbWsdl</id>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+            <configuration>
+              <wsdlFiles>
+                <wsdlFile>arfolyamok.asmx.wsdl</wsdlFile>
+              </wsdlFiles>
+              <packageName>hu.javaforum.mnb.exchangerates</packageName>
+              <sourceDestDir>${basedir}/target/generated-sources/wsimport</sourceDestDir>
+              <staleFile>${project.build.directory}/jaxws/stale/wsdl3.done</staleFile>
+            </configuration>
+          </execution>
+          <execution>
+            <id>w3cWsdl</id>
+            <goals>
+              <goal>wsimport</goal>
+            </goals>
+            <configuration>
+              <wsdlFiles>
+                <wsdlFile>tempconvert.asmx.wsdl</wsdlFile>
+              </wsdlFiles>
+              <packageName>hu.javaforum.w3c.tempconvert</packageName>
+              <sourceDestDir>${basedir}/target/generated-sources/wsimport</sourceDestDir>
+              <staleFile>${project.build.directory}/jaxws/stale/wsdl4.done</staleFile>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

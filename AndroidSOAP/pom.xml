@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>hu.javaforum</groupId>
+    <artifactId>javaforum20-parent</artifactId>
+    <version>1.0.8</version>
+  </parent>
+
+  <groupId>hu.javaforum.android</groupId>
+  <artifactId>AndroidSOAP</artifactId>
+  <name>Android SOAP</name>
+  <version>0.0.6-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <description>Android SOAP - Main</description>
+  
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://traq.javaforum.hu/browse/ANDROIDSOAP</url>
+  </issueManagement>
+
+  <ciManagement>
+    <system>Jenkins</system>
+    <url>http://jenkins.javaforum.hu/job/AndroidSOAP/</url>
+  </ciManagement>
+
+  <scm>
+    <connection>scm:svn:https://svn.javaforum.hu/svn/android/AndroidSOAP/trunk/AndroidSOAP</connection>
+    <developerConnection>scm:svn:https://svn.javaforum.hu/svn/android/AndroidSOAP/trunk/AndroidSOAP</developerConnection>
+    <url>scm:svn:https://svn.javaforum.hu/svn/android/AndroidSOAP/trunk/AndroidSOAP</url>
+  </scm>
+
+  <modules>
+    <module>AndroidSOAP-lib</module>
+    <module>AndroidSOAP-jaxws-interfaces-example</module>
+    <module>AndroidSOAP-example</module>
+  </modules>
+
+  <dependencies>
+    <!-- The internal dependencies -->
+
+    <!-- The external dependencies -->
+
+    <!-- The container provided dependencies -->
+
+    <!-- The 'transitive' external dependencies -->
+
+    <!-- The 'transitive' container provided dependencies -->
+  </dependencies>        
+</project>
+
