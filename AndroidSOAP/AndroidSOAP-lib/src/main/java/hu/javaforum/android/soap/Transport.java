@@ -9,6 +9,7 @@ import hu.javaforum.logger.Logger;
 import hu.javaforum.logger.PerfLogger;
 import hu.javaforum.logger.PerfTracer;
 import hu.javaforum.logger.Tracer;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -171,23 +173,33 @@ public abstract class Transport
         ExceptionHandler exceptionHandler = new ExceptionHandler(resultClass);
         exceptionHandler.parseWithPullParser(is);
         logger.info("The reply has been parsed");
-        throw new IOException((Exception) exceptionHandler.getObject());
+        IOException e2 = new IOException();
+        e2.initCause((Exception) exceptionHandler.getObject());
+        throw e2;
       } else
       {
         throw new IOException("Can't parse the response, status: " + statusCode);
       }
     } catch (XmlPullParserException ex)
     {
-      throw new IOException(ex.toString(), ex);
+    	IOException e2 = new IOException(ex.toString());
+    	e2.initCause(ex);
+    	throw e2;
     } catch (NoSuchFieldException ex)
     {
-      throw new IOException(ex.toString(), ex);
+    	IOException e2 = new IOException(ex.toString());
+    	e2.initCause(ex);
+    	throw e2;
     } catch (InstantiationException ex)
     {
-      throw new IOException(ex.toString(), ex);
+    	IOException e2 = new IOException(ex.toString());
+    	e2.initCause(ex);
+    	throw e2;
     } catch (IllegalAccessException ex)
     {
-      throw new IOException(ex.toString(), ex);
+    	IOException e2 = new IOException(ex.toString());
+    	e2.initCause(ex);
+    	throw e2;
     } finally
     {
       tracer.exit();

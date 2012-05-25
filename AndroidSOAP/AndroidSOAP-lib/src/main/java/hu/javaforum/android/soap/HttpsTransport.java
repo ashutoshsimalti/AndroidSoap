@@ -5,8 +5,10 @@
 package hu.javaforum.android.soap;
 
 import hu.javaforum.android.soap.ssl.HttpsClientFactory;
+
 import java.io.IOException;
 import java.security.KeyStore;
+
 import org.apache.http.client.HttpClient;
 import org.apache.http.params.HttpParams;
 
@@ -115,7 +117,9 @@ public class HttpsTransport extends Transport
       }
     } catch (Exception except)
     {
-      throw new IOException(except.toString(), except);
+    	IOException e2 = new IOException(except.getMessage());
+    	e2.initCause(except);
+    	throw e2;
     }
   }
 }
