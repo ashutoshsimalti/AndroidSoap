@@ -1,0 +1,7 @@
+.project
+.settings/
+.classpath
+Android-mock/target/
+AndroidSOAP-example/target/
+AndroidSOAP-lib/target/
+AndroidSOAP-jaxws-interfaces-example/target/
